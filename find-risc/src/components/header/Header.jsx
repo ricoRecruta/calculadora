@@ -3,14 +3,17 @@ import './Header.css'
 const Header = () => {
   return (
     <>
-      <h1>TESTE</h1>
-
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste deleniti
-        quas tenetur sit ipsa, earum obcaecati vitae explicabo magni voluptatem
-        numquam, eaque quidem ratione mollitia aperiam dicta illum reprehenderit
-        ad?
-      </p>
+      <div className='pai'>
+        <div>
+            <img src="./src/images/dia-mundial-do-diabetes.png" alt="Simbulo da saúde"  width={70}/>
+        </div>
+        <div>
+          <ul className='lista'>
+            <li>blog</li>
+            <li>Sobre nós</li>
+          </ul>
+        </div>
+      </div>
     </>
   );
 };
