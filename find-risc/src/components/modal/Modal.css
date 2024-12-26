@@ -8,8 +8,13 @@
     background-color: rgba(0,0,0, 0.350);
 }
 
+h2{
+    text-align: center;
+  }
 
 .modal{
+    display:flexbox;
+    place-items: center;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -19,11 +24,23 @@
     padding:5%;
     border-radius: 10px;
 }
+
 .Button{
     background-color: #5c715e;
     color: white;
     border: none;
-    padding: 1rem 5rem;
+    padding: 30% 80%;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+.button {
+    background-color: #5c715e;
+    color: white;
+    border: none;
+    padding: 3% 6%;
     border-radius: 5px;
     cursor: pointer;
 }
+

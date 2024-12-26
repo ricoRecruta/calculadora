@@ -1,22 +1,22 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import './Modal.css'
 
-const Modal = ({isOpen, set}) => {
-    if(isOpen){
+const Modal = ({ isOpen, set }) => {
+    if (isOpen) {
         const [peso, setPeso] = useState(0);
         const [altura, setAltura] = useState(0);
         const [imcState, setImcState] = useState(0);
 
-        function tratarMudancaPeso(event){
+        function tratarMudancaPeso(event) {
             setPeso(event.target.value);
         }
 
-        function calcularImc(event){
-            if(peso <= 0){
+        function calcularImc(event) {
+            if (peso <= 0) {
                 alert("Insira um peso válido");
                 return;
 
-            }if(altura <= 0){
+            } if (altura <= 0) {
                 alert("insira uma altura válida");
                 return;
 
@@ -25,9 +25,6 @@ const Modal = ({isOpen, set}) => {
             imc = peso / (altura * altura);
             setImcState(imc.toFixed(2));
         }
-
-       
-
 
 
         return (
@@ -41,25 +38,22 @@ const Modal = ({isOpen, set}) => {
                         <br />
 
                         <label htmlFor="altura">Altura: </label><br />
-                        <input type="number" name='altura' value={altura}  onChange={event => setAltura(event.target.value)} id='altura' />
-                        <br />
-                        <input type="button" value="Calcular Imc" onClick={calcularImc} />
-                        <br />
-                        <b></b>
+                        <input type="number" name='altura' value={altura} onChange={event => setAltura(event.target.value)} id='altura' />
+                        <br /><br />
+                        <input  className='button' type="button" value="Calcular Imc" onClick={calcularImc} />
+                        <br /><br />
                         <b>Seu IMC é: </b>{imcState}
-
-
 
                     </form>
                     <br />
-
-                    <button className='Button' onClick={()=> set(!isOpen)}>fechar</button>
-
+                    <div>
+                        <button className='Button' onClick={() => set(!isOpen)}>fechar</button>
+                    </div>
                 </div>
             </div>
-          )
+        )
     }
- 
+
 }
 
 export default Modal
