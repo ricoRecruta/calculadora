@@ -1,23 +1,16 @@
-import "./Header.css";
+import './Header.css'
 
 const Header = () => {
   return (
     <>
-      <div className="pai">
-        <div>
-          <img
-            src="./src/images/dia-mundial-do-diabetes.png"
-            alt="Simbolo da campanha diabetes"
-            width={70}
-          />
-        </div>
-        <div>
-          <ul className="lista">
-            <li>blog</li>
-            <li>Sobre nós</li>
-          </ul>
-        </div>
-      </div>
+      <h1>cabeçário 👁️</h1>
+
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste deleniti
+        quas tenetur sit ipsa, earum obcaecati vitae explicabo magni voluptatem
+        numquam, eaque quidem ratione mollitia aperiam dicta illum reprehenderit
+        ad?
+      </p>
     </>
   );
 };
