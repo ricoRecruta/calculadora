@@ -8,13 +8,22 @@
     background-color: rgba(0,0,0, 0.350);
 }
 
+
 .modal{
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50% , -50%);
-    background-color: white;
-    color: black;
-    padding:14rem;
+    background-color: #b6cdbd;
+    color: white;
+    padding:5%;
     border-radius: 10px;
+}
+.Button{
+    background-color: #5c715e;
+    color: white;
+    border: none;
+    padding: 1rem 5rem;
+    border-radius: 5px;
+    cursor: pointer;
 }

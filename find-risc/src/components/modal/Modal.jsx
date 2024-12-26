@@ -45,6 +45,7 @@ const Modal = ({isOpen, set}) => {
                         <br />
                         <input type="button" value="Calcular Imc" onClick={calcularImc} />
                         <br />
+                        <b></b>
                         <b>Seu IMC é: </b>{imcState}
 
 
@@ -52,7 +53,7 @@ const Modal = ({isOpen, set}) => {
                     </form>
                     <br />
 
-                    <button onClick={()=> set(!isOpen)}>fechar</button>
+                    <button className='Button' onClick={()=> set(!isOpen)}>fechar</button>
 
                 </div>
             </div>
