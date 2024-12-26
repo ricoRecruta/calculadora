@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import Modal from "../modal/Modal";
 
 function QuizForm() {
   const [answers, setAnswers] = useState({});
   const [total, setTotal] = useState(null);
   const [riskLevel, setRiskLevel] = useState("");
-
+  const [open, setOpen] = useState(false);
   const questions = [
     {
       id: "q1",
@@ -23,7 +24,9 @@ function QuizForm() {
         { label: "Abaixo de 25Kg/m²", value: 0 },
         { label: "25-30Kg/m²", value: 1 },
         { label: "Acima de 30Kg/m²", value: 3 },
+        
       ],
+      
     },
     {
       id: "q3",
@@ -145,7 +148,13 @@ function QuizForm() {
                 />
                 {option.label}
               </label>
-            ))}
+            ))} 
+            {q.id === "q2" && (
+              <>
+              <button onClick={() => setOpen(!open)}>Calcule seu Imc</button>
+              <Modal isOpen={open} set={setOpen} />
+              </>
+            ) }
           </div>
         ))}
         <button
