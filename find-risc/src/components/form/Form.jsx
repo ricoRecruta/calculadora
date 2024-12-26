@@ -1,4 +1,3 @@
-import "./Main.css";
 
 const Form = () => {
   return (
