@@ -3,6 +3,7 @@ import React, { useState } from "react";
 function QuizForm() {
   const [answers, setAnswers] = useState({});
   const [total, setTotal] = useState(null);
+  const [riskLevel, setRiskLevel] = useState("");
 
   const questions = [
     {
@@ -17,20 +18,76 @@ function QuizForm() {
     },
     {
       id: "q2",
-      question: "2) Com que frequência você faz exercícios?",
+      question: "2) Índice de massa corporal (IMC)",
       options: [
-        { label: "Nunca", value: 1 },
-        { label: "Raramente", value: 2 },
-        { label: "Regularmente", value: 3 },
-        { label: "Diariamente", value: 4 },
+        { label: "Abaixo de 25Kg/m²", value: 0 },
+        { label: "25-30Kg/m²", value: 1 },
+        { label: "Acima de 30Kg/m²", value: 3 },
       ],
     },
     {
       id: "q3",
-      question: "3) Você fuma?",
+      question:
+        "3) Circunferência da cintura medida abaixo das costelas (geralmente na altura do umbigo",
       options: [
-        { label: "Sim", value: 5 },
+        {
+          label: "Homens: Menor  que 94cm & Mulheres  menor que 80 cm",
+          value: 0,
+        },
+        { label: "Homens: Entre 94-102cm & Mulheres  entre 80-88cm", value: 3 },
+        {
+          label: "Homens: Maior  que 102cm & Mulheres  maior que 88 cm",
+          value: 4,
+        },
+      ],
+    },
+    {
+      id: "q4",
+      question: "4) Pratica ao menos 30 minutos de atividade física diária?",
+      options: [
+        { label: "Sim", value: 0 },
+        { label: "Não", value: 2 },
+      ],
+    },
+    {
+      id: "q5",
+      question:
+        "5) Com que frequência você come legumes, verduras, frutas ou grãos?",
+      options: [
+        { label: "Todos os dias", value: 0 },
+        { label: "Não como todos os dias", value: 1 },
+      ],
+    },
+    {
+      id: "q6",
+      question:
+        "6) Você já tomou regularmente algum medicamento para pressão alta?",
+      options: [
         { label: "Não", value: 0 },
+        { label: "Sim", value: 1 },
+      ],
+    },
+    {
+      id: "q7",
+      question:
+        "7) Alguma vez você já apresentou glicose alta no sangue (por exemplo, em um exame de rotina, durante uma doença, durante gravidez?",
+      options: [
+        { label: "Não", value: 0 },
+        { label: "Sim", value: 5 },
+      ],
+    },
+    {
+      id: "q8",
+      question:
+        "8) Algum membro da sua família ou parente próximo já foi diagnósticado com diabetes (tipo 1 ou tipo2)?",
+      options: [
+        { label: "Não", value: 0 },
+        {
+          label:
+            "Sim: avós, tia, tio ou primo de primeiro grau (exceto pai, mãe, irmão, irmã ou filhos)",
+          value: 3,
+        },
+        { label: "Sim: pai, mãe, irmão, irmã ou filho", value: 5 },
       ],
     },
   ];
@@ -43,7 +100,20 @@ function QuizForm() {
     }));
   };
 
-  // Calcular o total
+  const getRiskLevel = (score) => {
+    if (score < 7) {
+      return "Risco Baixo - cerca de 1 em cada 100 pessoas irá desenvolver a doença.";
+    } else if (score >= 7 && score <= 11) {
+      return "Risco Levemente Elevado - cerca de 1 em cada 25 pessoas irá desenvolver a doença.";
+    } else if (score >= 12 && score <= 14) {
+      return "Risco Moderado - cerca de 1 em cada 6 pessoas irá desenvolver a doença.";
+    } else if (score >= 15 && score <= 20) {
+      return "Risco Alto - cerca de 1 em cada 3 pessoas irá desenvolver a doença.";
+    } else {
+      return "Risco Muito Alto - cerca de 1 em cada 2 pessoas irá desenvolver a doença.";
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const totalScore = Object.values(answers).reduce(
@@ -51,6 +121,7 @@ function QuizForm() {
       0
     );
     setTotal(totalScore);
+    setRiskLevel(getRiskLevel(totalScore));
   };
 
   return (
@@ -100,7 +171,8 @@ function QuizForm() {
             color: "green",
           }}
         >
-          Sua pontuação total é: {total}
+          <p>Sua pontuação total é: {total}</p>
+          <p>{riskLevel}</p>
         </div>
       )}
     </div>
