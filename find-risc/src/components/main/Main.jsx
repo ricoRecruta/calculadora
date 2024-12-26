@@ -1,10 +1,24 @@
-import React from 'react'
-import './Main.css'
+import { useState } from "react";
+import "./Main.css";
+import Modal from "../modal/Modal";
+import Form from "../form/Form";
 
 const Main = () => {
-  return (
-    <div>Main</div>
-  )
-}
+  const [open, setOpen] = useState(false);
 
-export default Main
+  return (
+    <>
+      <h1>Conteudo Principal</h1>
+      <br />
+      <br />
+
+      <h3>Imc</h3>
+      <button onClick={() => setOpen(!open)}>Calcule imc</button>
+      <Modal isOpen={open} set={setOpen} />
+
+      <Form />
+    </>
+  );
+};
+
+export default Main;
