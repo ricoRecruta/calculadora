@@ -1,14 +1,18 @@
-import './Header.css'
+import "./Header.css";
 
 const Header = () => {
   return (
     <>
-      <div className='pai'>
+      <div className="pai">
         <div>
-            <img src="./src/images/dia-mundial-do-diabetes.png" alt="Simbulo da saúde"  width={70}/>
+          <img
+            src="./src/images/dia-mundial-do-diabetes.png"
+            alt="Simbolo da campanha diabetes"
+            width={70}
+          />
         </div>
         <div>
-          <ul className='lista'>
+          <ul className="lista">
             <li>blog</li>
             <li>Sobre nós</li>
           </ul>
