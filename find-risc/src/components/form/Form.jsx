@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Modal from "../modal/Modal";
+import './Form.css'
 
 function QuizForm() {
   const [answers, setAnswers] = useState({});
@@ -128,7 +129,8 @@ function QuizForm() {
   };
 
   return (
-    <div style={{ fontFamily: "Arial, sans-serif", padding: "20px" }}>
+    <div style={{ fontFamily: "Arial, sans-serif", padding: "20px" }} className="principal">
+      
       <h1>Formulário de Avaliação</h1>
       <form onSubmit={handleSubmit}>
         {questions.map((q) => (
@@ -184,6 +186,8 @@ function QuizForm() {
           <p>{riskLevel}</p>
         </div>
       )}
+      
+      
     </div>
   );
 }
